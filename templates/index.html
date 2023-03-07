@@ -7,7 +7,7 @@
     <title>SOUND CITY</title>
     <link rel="stylesheet" href="indcss.css">
 </head>
-<body>
+<body style="background-color: wheat">
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-md">
@@ -19,8 +19,9 @@
       <div class="container mt-5">
 
         <div class="row">
-            <div class="col-md-4">
-                <h2>Create Data</h2>
+        <center>
+            <div class="col-md-4" style="background-color: black">
+                <h2>BOOK TICKET NOW !!!</h2>
                 <br>
 
                 <form action="/insert" method="post">
@@ -31,52 +32,45 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="email" class="form-control  mt-2" placeholder="Email" name="email" required>
+                        <input type="text" class="form-control  mt-2" placeholder="ID Number" name="idnumber" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control  mt-2" placeholder="IDnumber" name="idnumber" required>
+                        <input type="text" class="form-control  mt-2" placeholder="Ticket Price" name="ticketprice" required>
 
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control  mt-2" placeholder="Genre" name="genre" required>
+                        <input type="text" class="form-control  mt-2" placeholder="Ticket Number" name="ticketnumber" required>
 
                     </div>
 
 
                       <div class="form-group">
-                        <input type="text" class="form-control  mt-2" placeholder="Password" name="password" required>
-
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control  mt-2" placeholder="Verification Code" name="verificationcode" required>
+                        <input type="text" class="form-control  mt-2" placeholder="Date" name="date" required>
 
                     </div>
 
 
                     <div class="d-grid gap-2">
 
-                        <button class="btn btn-success mt-2" type="submit">Insert</button>
+                        <button class="btn btn-success mt-2" type="submit">Book Ticket</button>
                     </div>
 
                 </form>
             </div>
-            <div class="col-md-8">
+        </center>
+            <div class="col-md-12">
                 <h2>View Data</h2>
                 <table class="table table-striped table-hover">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Email</th>
                         <th scope="col">ID Number</th>
-                        <th scope="col">Genre</th>
-                          <th scope="col">Password</th>
-                          <th scope="col">Verification Code</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Ticket Price</th>
+                        <th scope="col">Ticket Number</th>
+                          <th scope="col">Date</th>
 
                       </tr>
                     </thead>
@@ -86,18 +80,16 @@
                       <tr>
                         <th scope="row">{{d.id}}</th>
                         <td>{{d.name}}</td>
-                        <td>{{d.email}}</td>
                         <td>{{d.idnumber}}</td>
-                        <td>{{d.genre}}</td>
-                          <td>{{d.password}}</td>
-                          <td>{{d.verificationcode}}</td>
+                        <td>{{d.ticketprice}}</td>
+                        <td>{{d.ticketnumber}}</td>
+                          <td>{{d.date}}</td>
                         <td><a href="/update/{{d.id}}" type="button" class="btn btn-outline-warning">Edit</a></td>
                         <td><a href="/delete/{{d.id}}" type="button" class="btn btn-outline-danger">Delete</a></td>
                       </tr>
                     {% endfor %}
                     </tbody>
                   </table>
-
             </div>
         </div>
       </div>

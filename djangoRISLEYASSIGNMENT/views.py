@@ -10,11 +10,19 @@ def index_page(request):
     return render(request, "index.html", context)
 
 
+def edit_page(request):
+    return render(request, "edit.html")
+
+
 def insertData(request):
     if request.method == "POST":
         name = request.POST.get('name')
-        email = request.POST.get('email')
         idnumber = request.POST.get('idnumber')
-        genre = request.POST.get('genre')
-        password = request.POST.get('password')
-        verificationcode = request.POST.get('verificationcode')
+        ticketprice = request.POST.get('ticketprice')
+        ticketnumber = request.POST.get('ticketnumber')
+        date = request.POST.get('date')
+
+        query = User(name=name, idnumber=idnumber, ticketprice=ticketprice, ticketnumber=ticketnumber, date=date)
+        query.save()
+        return redirect("index")
+    return render(request, "index.html")
